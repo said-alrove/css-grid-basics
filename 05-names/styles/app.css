@@ -1,0 +1,131 @@
+/* === BASICS === */
+html {
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-color: #F3F3F3;
+}
+
+body { font-size: 1.6rem; }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+img { max-block-size: 100%; }
+
+/* === STYLES === */
+
+/* === INDEX(1) === */
+.container {
+    display: grid;
+    grid: 10rem auto 10rem / repeat(4, 25%);
+    grid-template-areas: 
+        "header     header      header      header"
+        "main       main        main        sidebar"
+        "footer     footer      footer      footer";
+    gap: 1em;
+    margin: 2em auto;
+    block-size: 100vh;
+    inline-size: 90rem;
+}
+
+.header { grid-area: header; }
+
+.header-title {
+    text-align: center;
+    padding-block: .5em;
+    background-color: coral;
+    color: white;
+}
+
+.main-content {
+    grid-area: main;
+    background-color: darkred;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: olive;
+}
+.footer {
+    grid-area: footer;
+    background-color: navy;
+}
+
+/* === 
+    INDEX(2) 
+       & 
+    INDEX(3) 
+=== */
+.media-content {
+    display: grid;
+    grid-template-areas: 
+        "heading"
+        "slogan"
+        "info"
+        "thumbnail"
+        "post";
+    gap: 2em;
+    margin: 1em auto;
+    padding-inline: 1em;
+    max-width: 80rem;
+}
+
+@media (min-width: 768px) {
+    .media-content {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "heading        heading     heading"
+            "thumbnail      slogan      slogan"
+            "thumbnail      info     info"
+            "post           post        post";
+    }
+}
+
+/* === LAYOUT === */
+.media-header { grid-area: heading; }
+
+@media (min-width: 768px) {
+    /* Note: because in index(2) there's media-body instead of slogan and info as in index(3), media-body will use that spot regardless of the template-area */
+    .media-body { 
+        grid-row: 2 / -1;
+        grid-column: 2 / -1; 
+    }
+}
+.media-info { grid-area: info; }
+
+.media-thumbnail { grid-area: thumbnail; }
+
+.media-slogan { grid-area: slogan; }
+
+.media-post { grid-area: post; }
+
+/* === STYLES === */
+.media-header,
+.media-body {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.media-body,
+.media-thumbnail,
+.media-slogan,
+.media-info,
+.media-text { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.media-slogan { font-weight: bold; }
+
+.media-info { flex-direction: column; }
+
+.media-info { padding-block: .5em; }

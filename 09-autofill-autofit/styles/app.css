@@ -1,0 +1,49 @@
+/* === BASICS === */
+html {
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-color: #F3F3F3;
+}
+
+body { font-size: 1.6rem; }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+/* === STYLES === */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    margin: 8em auto;
+    inline-size: 90%;
+    block-size: 30rem;
+    border: .5em solid black;
+    border-radius: .5em;
+}
+
+.service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.service:nth-child(1) { background-color: darkviolet; }
+
+.service:nth-child(2) { background-color: limegreen; }
+
+.service:nth-child(3) { background-color: teal; }
+
+.service:nth-child(4) { background-color: cornflowerblue; }
+
+.service:nth-child(5) { background-color: crimson; }
+
+.service:nth-child(6) { background-color: darkmagenta; }

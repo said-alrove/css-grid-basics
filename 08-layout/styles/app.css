@@ -1,0 +1,92 @@
+/* === BASICS === */
+html {
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-color: #F3F3F3;
+}
+
+body { font-size: 1.6rem; }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after { box-sizing: inherit; }
+
+/* === STYLES === */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "sb-left"
+        "content"
+        "sb-right"
+        "footer";
+    gap: 1em;
+    margin: 2em auto;
+    inline-size: 90%;
+    block-size: 100vh;
+    background-color: #FFF;
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid: 
+            repeat(2, 8rem) repeat(2, auto) 8rem /
+            repeat(4, 1fr);
+        grid-template-areas: 
+            "header     header      header      header"
+            "sb-left    nav         nav         nav"
+            "sb-left    content     content     sb-right"
+            "sb-left    content     content     sb-right"
+            "footer     footer      footer      sb-right"
+    }
+}
+
+.container > * { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em; 
+}
+
+.container > * > * { 
+    font-weight: bold;
+    font-size: 2rem; 
+    color: white;
+}
+
+.header {
+    grid-area: header;
+    background-color: cornflowerblue;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: coral;
+}
+
+.-left {
+    grid-area: sb-left;
+    background-color: cadetblue;
+}
+
+.main-content {
+    grid-area: content;
+    background-color: crimson;
+}
+
+.-right {
+    grid-area: sb-right;
+    background-color: darkblue;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: darkmagenta;
+}
