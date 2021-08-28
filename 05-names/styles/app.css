@@ -31,7 +31,7 @@ img { max-block-size: 100%; }
         "footer     footer      footer      footer";
     gap: 1em;
     margin: 2em auto;
-    block-size: 100vh;
+    block-size: 90vh;
     inline-size: 90rem;
 }
 
